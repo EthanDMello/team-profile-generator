@@ -37,6 +37,35 @@ const managerPrompt = () => {
     });
 };
 
+const engineerPrompt = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is the engineers name?",
+        name: "engineerName",
+      },
+      {
+        type: "input",
+        message: "What is the engineers employee ID?",
+        name: "engineersId",
+      },
+      {
+        type: "input",
+        message: "What is the engineers email?",
+        name: "engineersEmail",
+      },
+      {
+        type: "input",
+        message: "What is the engineers Github username?",
+        name: "engineersGithubUsername",
+      },
+    ])
+    .then((response) => {
+      mainMenu();
+    });
+};
+
 const mainMenu = () => {
   inquirer
     .prompt([
