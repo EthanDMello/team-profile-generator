@@ -1,12 +1,17 @@
 // main code
 
 // import classes
-
 import Engineer from "./lib/Engineer.js";
 import Intern from "./lib/Intern.js";
 import Manager from "./lib/Manager.js";
+// import other functions
+import generateHTML from "./dist/generateHTML.js";
 
+// import modules
 import inquirer from "inquirer";
+
+// initialise array to export
+let teamMembers = [];
 
 // control the manager prompt and what to build next.
 const managerPrompt = () => {
@@ -40,6 +45,7 @@ const managerPrompt = () => {
         response.managersEmail,
         response.managersOfficeNumber
       );
+      teamMembers.push(outputManager);
       mainMenu();
     });
 };
@@ -69,6 +75,13 @@ const engineerPrompt = () => {
       },
     ])
     .then((response) => {
+      const outputEngineer = new Engineer(
+        response.engineersName,
+        response.engineersId,
+        response.engineersEmail,
+        response.engineersOfficeNumber
+      );
+      teamMembers.push(outputEngineer);
       mainMenu();
     });
 };
@@ -98,6 +111,13 @@ const internPrompt = () => {
       },
     ])
     .then((response) => {
+      const outputIntern = new Intern(
+        response.internsName,
+        response.internsId,
+        response.internsEmail,
+        response.internsOfficeNumber
+      );
+      teamMembers.push(outputIntern);
       mainMenu();
     });
 };
@@ -115,6 +135,8 @@ const mainMenu = () => {
     .then((response) => {
       switch (response.option) {
         case "Finish building team":
+          console.log(teamMembers);
+          const htmlOutput = generateHTML(teamMembers);
           return;
         case "Intern":
           internPrompt();

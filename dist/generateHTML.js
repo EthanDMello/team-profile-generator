@@ -1,6 +1,11 @@
+import fs from "fs";
+
 // generate HTML to publish
-const generateHTML = () => {
-  return `<!DOCTYPE html>
+export default function generateHTML(TeamMembers) {
+  TeamMembers.forEach((employee) => {
+    5;
+  });
+  const newHTML = `<!DOCTYPE html>
   <html lang="en">
   <head>
       <meta charset="UTF-8">
@@ -17,7 +22,6 @@ const generateHTML = () => {
     </header>
   </body>
   </html>`;
-};
 
-// export function
-module.exports = generateHTML();
+  fs.writeFile("index.html", newHTML);
+}
