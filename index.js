@@ -1,11 +1,12 @@
 // main code
 
 // import classes
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-const Manager = require("./lib/Manager");
 
-const inquirer = require("inquirer");
+import Engineer from "./lib/Engineer.js";
+import Intern from "./lib/Intern.js";
+import Manager from "./lib/Manager.js";
+
+import inquirer from "inquirer";
 
 // control the manager prompt and what to build next.
 const managerPrompt = () => {
@@ -66,6 +67,35 @@ const engineerPrompt = () => {
     });
 };
 
+const internPrompt = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is the interns name?",
+        name: "InternsName",
+      },
+      {
+        type: "input",
+        message: "What is the interns employee ID?",
+        name: "internsId",
+      },
+      {
+        type: "input",
+        message: "What is the interns email?",
+        name: "internsEmail",
+      },
+      {
+        type: "input",
+        message: "What is the interns Github username?",
+        name: "internsGithubUsername",
+      },
+    ])
+    .then((response) => {
+      mainMenu();
+    });
+};
+
 const mainMenu = () => {
   inquirer
     .prompt([
@@ -76,10 +106,9 @@ const mainMenu = () => {
         choices: ["Engineer", "Intern", "Finish building team"],
       },
     ])
-    .then(() => {
+    .then((response) => {
       switch (response.option) {
         case "Finish building team":
-          console.log("finished!");
           return;
         case "Intern":
           internPrompt();
