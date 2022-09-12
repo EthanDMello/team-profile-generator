@@ -34,6 +34,12 @@ const managerPrompt = () => {
       },
     ])
     .then((response) => {
+      const outputManager = new Manager(
+        response.managersName,
+        response.managersId,
+        response.managersEmail,
+        response.managersOfficeNumber
+      );
       mainMenu();
     });
 };
