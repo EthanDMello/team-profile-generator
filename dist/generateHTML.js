@@ -2,7 +2,17 @@ import fs from "fs";
 
 // generate HTML to publish
 export default function generateHTML(TeamMembers) {
-  TeamMembers.forEach((employee) => {});
+  TeamMembers.forEach((employee, i) => {
+    const newMember = `
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+        ${employee.name}
+        </div>
+      </div>
+    </div>
+`;
+  });
   const newHTML = `<!DOCTYPE html>
   <html lang="en">
   <head>
