@@ -137,7 +137,7 @@ const mainMenu = () => {
         case "Finish building team":
           console.log(teamMembers);
           teamMembers.forEach((member) => {
-            if (member.constructor.name === "Manage") {
+            if (member.constructor.name === "Manager") {
               console.log("manager");
             } else console.log("no!");
           });
