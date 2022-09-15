@@ -13,7 +13,7 @@ export default function generateHTML(TeamMembers) {
             <h1>Manager</h1>
             <p>${employee.name}</p>
             <p>Employee id: ${employee.id}</p>
-            <p>${employee.email}</p>
+            <p><a href="mailto: ${employee.email}">${employee.email}</a></p>
             <p>Office Number: ${employee.officeNumber}</p>
           </div>
         </div>
@@ -24,11 +24,11 @@ export default function generateHTML(TeamMembers) {
         let newEngineer = `
         <div class="box m-3">
           <div class="content p-6 has-text-centered">
-            <h1>Manager</h1>
+            <h1>Engineer</h1>
             <p>${employee.name}</p>
             <p>Employee id: ${employee.id}</p>
-            <p>${employee.email}</p>
-            <p>Github: ${employee.github}</p>
+            <p><a href="mailto: ${employee.email}">${employee.email}</a></p>
+            <p><a href="https://github.com/${employee.github}">${employee.github}</a></p>
           </div>
         </div>
         `;
@@ -38,10 +38,10 @@ export default function generateHTML(TeamMembers) {
         let newIntern = `
         <div class="box m-3">
           <div class="content p-6 has-text-centered">
-            <h1>Manager</h1>
+            <h1>Intern</h1>
             <p>${employee.name}</p>
             <p>Employee id: ${employee.id}</p>
-            <p>${employee.email}</p>
+            <p><a href="mailto: ${employee.email}">${employee.email}</a></p>
             <p>School: ${employee.school}</p>
           </div>
         </div>
