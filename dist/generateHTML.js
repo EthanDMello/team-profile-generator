@@ -8,7 +8,7 @@ export default function generateHTML(TeamMembers) {
     switch (employee.constructor.name) {
       case "Manager":
         let newManager = `
-        <div class="box m-3">
+        <div class="box m-3 has-background-primary">
           <div class="content p-6 has-text-centered">
             <span class="is-flex">
               <h1>Manager</h1>
@@ -27,7 +27,7 @@ export default function generateHTML(TeamMembers) {
         break;
       case "Engineer":
         let newEngineer = `
-        <div class="box m-3">
+        <div class="box m-3 has-background-success">
           <div class="content p-6 has-text-centered">
             <span class="is-flex">
               <h1>Engineer</h1>
@@ -46,7 +46,7 @@ export default function generateHTML(TeamMembers) {
         break;
       case "Intern":
         let newIntern = `
-        <div class="box m-3">
+        <div class="box m-3 has-background-info">
           <div class="content p-6 has-text-centered">
             <span class="is-flex">
               <h1>Intern</h1>
@@ -64,9 +64,11 @@ export default function generateHTML(TeamMembers) {
         newMemberAr.push(newIntern);
     }
   });
-  newMemberAr.forEach((employee, i) => {
-    spreadMemberVar = spreadMemberVar + employee;
-  });
+  (function () {
+    newMemberAr.forEach((employee, i) => {
+      spreadMemberVar = spreadMemberVar + employee;
+    });
+  })();
   const newHTML = `<!DOCTYPE html>
   <html lang="en">
   <head>
