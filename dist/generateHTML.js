@@ -10,7 +10,12 @@ export default function generateHTML(TeamMembers) {
         let newManager = `
         <div class="box m-3">
           <div class="content p-6 has-text-centered">
-            <h1>Manager</h1>
+            <span class="is-flex">
+              <h1>Manager</h1>
+              <span class="is-align-self-center">
+                <ion-icon name="bulb-outline" size="large"></ion-icon>
+              </span>
+            </span>
             <p>${employee.name}</p>
             <p>Employee id: ${employee.id}</p>
             <p><a href="mailto: ${employee.email}">${employee.email}</a></p>
@@ -24,7 +29,12 @@ export default function generateHTML(TeamMembers) {
         let newEngineer = `
         <div class="box m-3">
           <div class="content p-6 has-text-centered">
-            <h1>Engineer</h1>
+            <span class="is-flex">
+              <h1>Engineer</h1>
+              <span class="is-align-self-center">
+                <ion-icon name="cog-outline" size="large"></ion-icon>
+              </span>
+            </span>
             <p>${employee.name}</p>
             <p>Employee id: ${employee.id}</p>
             <p><a href="mailto: ${employee.email}">${employee.email}</a></p>
@@ -38,7 +48,12 @@ export default function generateHTML(TeamMembers) {
         let newIntern = `
         <div class="box m-3">
           <div class="content p-6 has-text-centered">
-            <h1>Intern</h1>
+            <span class="is-flex">
+              <h1>Intern</h1>
+              <span class="is-align-self-center">
+                <ion-icon name="cafe-outline" size="large"></ion-icon>
+              </span>
+            </span>
             <p>${employee.name}</p>
             <p>Employee id: ${employee.id}</p>
             <p><a href="mailto: ${employee.email}">${employee.email}</a></p>
@@ -67,12 +82,16 @@ export default function generateHTML(TeamMembers) {
   </head>
 
   <body>
-    <header>
-    <h1>My Team</h1>
-    </header>
+    <container class="hero is-small has-background-light">
+      <div class="hero-body">
+        <h1 class="is-size-1 has-text-centered">My Team</h1>
+      </div>
+    </container>
     <div class="is-flex is-flex-direction-row is-justify-content-space-evenly">
     ${spreadMemberVar}
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
   </html>`;
 
