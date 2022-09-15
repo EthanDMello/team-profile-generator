@@ -38,7 +38,7 @@ export default function generateHTML(TeamMembers) {
             <p>${employee.name}</p>
             <p>Employee id: ${employee.id}</p>
             <p><a href="mailto: ${employee.email}">${employee.email}</a></p>
-            <p><a href="https://github.com/${employee.github}">${employee.github}</a></p>
+            <p><a href="https://github.com/${employee.github}" target="_blank"clear>${employee.github}</a></p>
           </div>
         </div>
         `;

@@ -56,7 +56,7 @@ const engineerPrompt = () => {
       {
         type: "input",
         message: "What is the engineers name?",
-        name: "engineerName",
+        name: "engineersName",
       },
       {
         type: "input",
@@ -79,7 +79,7 @@ const engineerPrompt = () => {
         response.engineersName,
         response.engineersId,
         response.engineersEmail,
-        response.engineersOfficeNumber
+        response.engineersGithubUsername
       );
       teamMembers.push(outputEngineer);
       mainMenu();
@@ -92,7 +92,7 @@ const internPrompt = () => {
       {
         type: "input",
         message: "What is the interns name?",
-        name: "InternsName",
+        name: "internsName",
       },
       {
         type: "input",
@@ -106,8 +106,8 @@ const internPrompt = () => {
       },
       {
         type: "input",
-        message: "What is the interns Github username?",
-        name: "internsGithubUsername",
+        message: "What is the interns school?",
+        name: "internsSchool",
       },
     ])
     .then((response) => {
@@ -115,7 +115,7 @@ const internPrompt = () => {
         response.internsName,
         response.internsId,
         response.internsEmail,
-        response.internsOfficeNumber
+        response.internsSchool
       );
       teamMembers.push(outputIntern);
       mainMenu();
@@ -136,7 +136,7 @@ const mainMenu = () => {
       switch (response.option) {
         case "Finish building team":
           console.log(teamMembers);
-          const htmlOutput = generateHTML(teamMembers);
+          generateHTML(teamMembers);
           return;
         case "Intern":
           internPrompt();
