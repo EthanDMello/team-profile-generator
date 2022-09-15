@@ -7,27 +7,49 @@ export default function generateHTML(TeamMembers) {
   TeamMembers.forEach((employee, i) => {
     switch (employee.constructor.name) {
       case "Manager":
-        const newMember = `
-        <div class="card">
-          <header class="card-header">
-            <p class="card-header-title">
-              Manager
-            </p>
-          </header>
-          <div class="card-content">
-            <div class="content">
-            ${employee.name}
-            </div>
+        let newManager = `
+        <div class="box m-3">
+          <div class="content p-6 has-text-centered">
+            <h1>Manager</h1>
+            <p>${employee.name}</p>
+            <p>Employee id: ${employee.id}</p>
+            <p>${employee.email}</p>
+            <p>Office Number: ${employee.officeNumber}</p>
           </div>
         </div>
         `;
+        newMemberAr.push(newManager);
         break;
       case "Engineer":
+        let newEngineer = `
+        <div class="box m-3">
+          <div class="content p-6 has-text-centered">
+            <h1>Manager</h1>
+            <p>${employee.name}</p>
+            <p>Employee id: ${employee.id}</p>
+            <p>${employee.email}</p>
+            <p>Github: ${employee.github}</p>
+          </div>
+        </div>
+        `;
+        newMemberAr.push(newEngineer);
         break;
+      case "Intern":
+        let newIntern = `
+        <div class="box m-3">
+          <div class="content p-6 has-text-centered">
+            <h1>Manager</h1>
+            <p>${employee.name}</p>
+            <p>Employee id: ${employee.id}</p>
+            <p>${employee.email}</p>
+            <p>School: ${employee.school}</p>
+          </div>
+        </div>
+        `;
+        newMemberAr.push(newIntern);
     }
-    newMemberAr.push(newMember);
   });
-  newMemberAr.forEach((employee) => {
+  newMemberAr.forEach((employee, i) => {
     spreadMemberVar = spreadMemberVar + employee;
   });
   const newHTML = `<!DOCTYPE html>
@@ -48,7 +70,9 @@ export default function generateHTML(TeamMembers) {
     <header>
     <h1>My Team</h1>
     </header>
-    <main>${newMemberAr}</main>
+    <div class="is-flex is-flex-direction-row is-justify-content-space-evenly">
+    ${spreadMemberVar}
+    </div>
   </body>
   </html>`;
 

@@ -136,11 +136,6 @@ const mainMenu = () => {
       switch (response.option) {
         case "Finish building team":
           console.log(teamMembers);
-          teamMembers.forEach((member) => {
-            if (member.constructor.name === "Manager") {
-              console.log("manager");
-            } else console.log("no!");
-          });
           const htmlOutput = generateHTML(teamMembers);
           return;
         case "Intern":
