@@ -1,14 +1,14 @@
 // main code
 
 // import classes
-import Engineer from "./lib/Engineer.js";
-import Intern from "./lib/Intern.js";
-import Manager from "./lib/Manager.js";
+const Engineer = require("./lib/Engineer.js");
+const Intern = require("./lib/Intern.js");
+const Manager = require("./lib/Manager.js");
 // import other functions
-import generateHTML from "./dist/generateHTML.js";
+const generateHTML = require("./dist/generateHTML.js");
 
 // import modules
-import inquirer from "inquirer";
+const inquirer = require("inquirer");
 
 // initialise array to export
 let teamMembers = [];

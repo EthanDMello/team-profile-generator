@@ -1,7 +1,7 @@
-import fs from "fs";
+const fs = require("fs");
 
 // generate HTML to publish
-export default function generateHTML(TeamMembers) {
+function generateHTML(TeamMembers) {
   const newMemberAr = [];
   let spreadMemberVar = "";
   TeamMembers.forEach((employee, i) => {
@@ -103,3 +103,5 @@ export default function generateHTML(TeamMembers) {
     }
   });
 }
+
+module.exports = generateHTML;
